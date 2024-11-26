@@ -1,0 +1,39 @@
+{
+  "name": "nodejs-authentication",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "nodejs-authentication",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon -r dotenv/config src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahul-g-1997/Nodejs-Authentication.git"
+  },
+  "keywords": [
+    "nodejs-authentication"
+  ],
+  "author": "Rahul Gaydhane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rahul-g-1997/Nodejs-Authentication/issues"
+  },
+  "homepage": "https://github.com/rahul-g-1997/Nodejs-Authentication#readme",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "mongodb": "^6.10.0",
+    "mongoose": "^8.8.1",
+    "nodejs-authentication": "file:",
+    "nodemon": "^3.1.7",
+    "passport": "^0.7.0",
+    "passport-local-mongoose": "^8.0.0"
+  }
+}
