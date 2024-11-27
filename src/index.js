@@ -1,30 +1,24 @@
-// Importing the dotenv configuration to access environment variables from the .env file
-import "dotenv/config";
+import "dotenv/config"; // Import and configure environment variables from the .env file
+import connectDB from "./db/index.js"; // Import the function to connect to the database
+import { app } from "./app.js"; // Import the Express application
 
-// Importing the database connection function
-import connectDB from "./db/index.js";
+const port = process.env.PORT || 3000; // Set the port from environment variables or default to 3000
 
-// Importing the main Express application instance
-import { app } from "./app.js";
-
-// Defining the port for the server, defaulting to 3000 if not set in .env
-const port = process.env.PORT || 3000;
-
-// Connecting to the MongoDB database
+// Attempt to connect to the database
 connectDB()
   .then(() => {
-    // Handling application errors
+    // If the connection is successful, set up the error handler for the app
     app.on("error", (error) => {
-      console.log("Error", error);
-      throw error;
+      console.log("Error", error); // Log any error that occurs within the app
+      throw error; // Rethrow the error to stop further execution
     });
 
-    // Starting the server and listening on the specified port
+    // Start the server and listen on the specified port
     app.listen(port, () => {
-      console.log(`Server listening on ${port}`);
+      console.log(`Server listening on ${port}`); // Log a message when the server is running
     });
   })
   .catch((error) => {
-    // Logging if MongoDB connection fails
+    // If the connection to the database fails, log the error
     console.log("MongoDB Connection failed: " + error);
   });
