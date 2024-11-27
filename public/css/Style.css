@@ -1,0 +1,84 @@
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+.container-fluid {
+  background-image: url('../images/background\ img.avif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  position: relative;
+  /* This is needed to make the absolute positioning of the logo work */
+}
+
+.CNLogo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 50px;
+  width: 50px;
+}
+
+.ninjaLogo {
+  display: inline;
+  width: 37px;
+  height: 37px;
+}
+
+.box {
+  background-color: rgba(255, 255, 255, 0.347);
+  /* Make the login card semi-transparent */
+  padding: 40px;
+  /* Add padding inside the login box */
+  /* Rounded corners */
+  border-radius: 70px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+  /* Add subtle shadow */
+  width: 100%;
+  max-width: 400px;
+  /* Set a max-width for the login card */
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Center the card vertically and horizontally */
+}
+
+.msg {
+  text-align: center;
+  font-size: 26px;
+  height: 60px;
+  display: flex;
+}
+
+.msg-s {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.para {
+  color: red;
+  text-align: center;
+  width: 100%;
+}
+
+.btn {
+  background: linear-gradient(to bottom, gray, rgb(0, 0, 0));
+  /* Gradient from top (black) to bottom (white) */
+
+  /* Sets text color for contrast */
+  border: none;
+  /* Removes default border */
+  padding: 5px 20px;
+  /* Adds padding for better appearance */
+  border-radius: 7px;
+  /* Adds rounded corners */
+  text-align: center;
+  /* Centers text */
+  cursor: pointer;
+  /* Adds a pointer cursor on hover */
+
+}
