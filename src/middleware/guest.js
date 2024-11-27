@@ -1,9 +1,14 @@
+// Middleware to check if the user is logged in (authenticated)
 const isLoggedIn = (req, res, next) => {
+  // Check if the user is authenticated using the passport 'isAuthenticated' method
   if (req.isAuthenticated && req.isAuthenticated()) {
-    return next(); // Proceed to the next middleware or route handler
+    // If authenticated, allow the request to proceed to the next middleware or route handler
+    return next();
   }
-  res.redirect("/signin"); // Redirect to the signin page if not authenticated
+
+  // If not authenticated, redirect the user to the login (signin) page
+  res.redirect("/signin");
 };
 
-// Export the middleware as a default export
+// Export the middleware for use in other parts of the application
 export default isLoggedIn;
