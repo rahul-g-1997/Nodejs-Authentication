@@ -16,39 +16,31 @@
     <title>Home</title>
   </head>
   <body>
-    <div class="container-fluid mt-4">
-      <div class="wrapper">
-        <div class="row justify-content-center mt-2">
-          <div class="row">
-            <div class="col-md-12">
-              <img src="./images/CNLogo.png" class="CNLogo" alt="" />
-            </div>
-          </div>
-
-          <div class="col-md-5 border border-danger p-5 rounded box">
-            <div class="msg justify-content-center">
-              <p>Login Sucessful</p>
-              <span>
-                <img
-                  class="ninjaLogo ms-3"
-                  src="./images/codingNinjas.jpg"
-                  alt=""
-                />
-              </span>
-            </div>
-            <form id="logout" action="/logout" method="POST">
-              <div class="d-grid gap-2 col-8 mx-auto mt-4">
-                <a
-                  onclick="document.getElementById('logout').submit()"
-                  class="btn btn-primary mb-4"
-                  href="#"
-                  style="text-decoration: none"
-                  >LOG OUT</a
-                >
-              </div>
-            </form>
-          </div>
+    <div class="container-fluid row justify-content-center">
+      <div class="row">
+        <div class="col-md-12">
+          <img src="./images/code.png" class="CNLogo" alt="" />
         </div>
+      </div>
+
+      <div class="col-md-5  p-5  box">
+        <div class="msg justify-content-center">
+          <p>Login Sucessful</p>
+          <span>
+            <img class="ninjaLogo ms-3" src="./images/code.png" alt="Logo" />
+          </span>
+        </div>
+        <form id="logout" action="/logout" method="POST">
+          <div class="d-grid gap-2 col-8 mx-auto mt-4">
+            <a
+              onclick="document.getElementById('logout').submit()"
+              class="btn btn-primary mb-4"
+              href="#"
+              style="text-decoration: none"
+              >LOG OUT</a
+            >
+          </div>
+        </form>
       </div>
     </div>
 
