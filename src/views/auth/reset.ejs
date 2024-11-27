@@ -40,11 +40,12 @@
 
         <form action="/reset" method="POST">
           <% if(messages.error) { %>
-          <span class="text-red text-center para"> <%= messages.error %> </span>
+          <span class="text-red-500 text-sm para"> <%= messages.error %> </span>
           <% } %>
           <div class="mb-3">
             <label for="email" class="form-label font-bold">Name</label>
             <input
+              required
               name="username"
               value="<%= messages.username  %>"
               type="text"
@@ -59,6 +60,7 @@
               >Old Password</label
             >
             <input
+              required
               name="oldpassword"
               type="password"
               class="form-control"
@@ -73,6 +75,7 @@
               >New Password</label
             >
             <input
+              required
               name="newpassword"
               type="password"
               class="form-control"
