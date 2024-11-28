@@ -63,7 +63,6 @@ app.set("views", path.join(__dirname, "views"));
 const publicPath = path.join(__dirname, "../public");
 app.use(express.static(publicPath));
 
-
 // Defining routes for the application, with all routes starting from the root
 app.use("/", routes);
 

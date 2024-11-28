@@ -1,84 +1,118 @@
+/* Set a universal font style for the entire application */
 * {
   font-family: "Open Sans", sans-serif;
 }
 
+/* Background container styles */
 .container-fluid {
   background-image: url('../images/background\ img.avif');
+  /* Background image */
   background-size: cover;
+  /* Ensure the background image covers the container */
   background-position: center;
+  /* Center the image */
   background-repeat: no-repeat;
+  /* Avoid repeating the background image */
   height: 100vh;
+  /* Full height of the viewport */
   position: relative;
-  /* This is needed to make the absolute positioning of the logo work */
+  /* For positioning child elements like Logo */
 }
 
-.CNLogo {
+/* Logo positioning and styling */
+.Logo {
   position: absolute;
+  /* Position logo relative to the container */
   top: 10px;
+  /* Distance from the top */
   left: 10px;
+  /* Distance from the left */
   height: 50px;
+  /* Logo height */
   width: 50px;
+  /* Logo width */
 }
 
-.ninjaLogo {
+/* Inline logo styles for cards or similar elements */
+.CardLogo {
   display: inline;
+  /* Display inline to align with text or other content */
   width: 37px;
+  /* Card logo width */
   height: 37px;
+  /* Card logo height */
 }
 
+/* Central box for the main content or card */
 .box {
   background-color: rgba(255, 255, 255, 0.347);
-  /* Make the login card semi-transparent */
+  /* Semi-transparent white background */
   padding: 40px;
-  /* Add padding inside the login box */
-  /* Rounded corners */
+  /* Padding inside the box */
   border-radius: 70px;
+  /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-  /* Add subtle shadow */
+  /* Drop shadow for depth */
   width: 100%;
+  /* Full width of its container */
   max-width: 400px;
-  /* Set a max-width for the login card */
+  /* Maximum width for responsiveness */
   margin: auto;
+  /* Center align for small screens */
   position: absolute;
+  /* Position box centrally */
   top: 50%;
+  /* Align vertically */
   left: 50%;
+  /* Align horizontally */
   transform: translate(-50%, -50%);
-  /* Center the card vertically and horizontally */
+  /* Center the box exactly */
 }
 
+/* Styling for message text inside the box */
 .msg {
   text-align: center;
+  /* Center align text */
   font-size: 26px;
+  /* Larger font size for emphasis */
   height: 60px;
+  /* Fixed height for consistent layout */
   display: flex;
+  /* Flexbox for alignment */
 }
 
+/* Sub-message or secondary text */
 .msg-s {
   margin-top: 10px;
+  /* Space above the text */
   text-align: center;
+  /* Center align text */
   font-size: 20px;
+  /* Slightly smaller font size */
 }
 
+/* Styling for paragraph text */
 .para {
   color: red;
+  /* Red color for warning or error text */
   text-align: center;
+  /* Center align text */
   width: 100%;
+  /* Full width for layout */
 }
 
+/* Button styling */
 .btn {
   background: linear-gradient(to bottom, gray, rgb(0, 0, 0));
-  /* Gradient from top (black) to bottom (white) */
-
-  /* Sets text color for contrast */
+  /* Gradient background */
   border: none;
-  /* Removes default border */
+  /* No border */
   padding: 5px 20px;
-  /* Adds padding for better appearance */
+  /* Padding for size and shape */
   border-radius: 7px;
-  /* Adds rounded corners */
+  /* Rounded corners */
   text-align: center;
-  /* Centers text */
+  /* Center the button text */
   cursor: pointer;
-  /* Adds a pointer cursor on hover */
-
+  /* Pointer cursor for click indication */
 }
