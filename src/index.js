@@ -8,7 +8,7 @@ import connectDB from "./db/index.js";
 import { app } from "./app.js";
 
 // Defining the port for the server, defaulting to 3000 if not set in .env
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 // Connecting to the MongoDB database
 connectDB()
