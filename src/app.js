@@ -1,6 +1,5 @@
 // Importing required modules
 import express from "express";
-import cors from "cors";
 import cookieParser from "cookie-parser";
 import routes from "./routes/index.js";
 import path from "path";
@@ -17,15 +16,6 @@ const __dirname = path.dirname(__filename);
 
 // Create an Express application instance
 const app = express();
-
-// Enable Cross-Origin Resource Sharing (CORS)
-// This allows requests from a specified origin and includes credentials
-app.use(
-  cors({
-    origin: process.env.CORS_ORIGIN,
-    credentials: true,
-  })
-);
 
 // Session configuration
 app.use(

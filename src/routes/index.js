@@ -1,12 +1,12 @@
 // Import the required modules
-import express from "express"; // Express for routing
-import authController from "../controller/authController.js"; // Controller for authentication logic
-import isLoggedIn from "../middleware/guest.js"; // Middleware to check if the user is logged in
+import express from "express"; 
+import authController from "../controller/authController.js"; 
+import isLoggedIn from "../middleware/guest.js"; 
 
 // Initialize the router
 const router = express.Router();
 
-/* Route definitions */
+
 
 /* Route to display the sign-in page */
 router.get("/signin", authController.signin);
