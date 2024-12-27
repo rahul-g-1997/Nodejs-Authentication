@@ -6,8 +6,6 @@ import isLoggedIn from "../middleware/guest.js";
 // Initialize the router
 const router = express.Router();
 
-
-
 /* Route to display the sign-in page */
 router.get("/signin", authController.signin);
 

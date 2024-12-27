@@ -5,7 +5,7 @@ const authController = {
   // ************************************  SIGN IN SETUP  *********************************//
   // Renders the sign-in page and passes any flash messages for feedback
   signin(req, resp) {
-    resp.render("auth/signin", { messages: req.flash() }); // Pass flash messages
+    resp.render("auth/signin", { messages: req.flash() }); 
   },
 
   // Handles the POST request for sign-in, authenticates the user via passport
@@ -35,7 +35,7 @@ const authController = {
           req.flash("error", info.message);
           return next(err);
         }
-        return resp.redirect("/home"); // Redirect to home after successful login
+        return resp.redirect("/home"); 
       });
     })(req, resp, next);
   },
@@ -60,7 +60,7 @@ const authController = {
       req.flash("error", "All fields are required");
       req.flash("username", username);
       req.flash("email", email);
-      return resp.redirect("/"); // Changed from "/" to "/signup" to stay on the signup page
+      return resp.redirect("/"); 
     }
 
     try {
@@ -70,17 +70,17 @@ const authController = {
         req.flash("error", "Email already taken");
         req.flash("username", username);
         req.flash("email", email);
-        return resp.redirect("/"); // Redirect if email is already taken
+        return resp.redirect("/"); 
       }
 
       // Create a new user and register them (password will be hashed)
       const newUser = new User({ username, email });
       await User.register(newUser, password);
-      return resp.redirect("/signin"); // Redirect to sign-in page after successful registration
+      return resp.redirect("/signin"); 
     } catch (err) {
-      console.error("Signup Error:", err); // Log the error for debugging
+      console.error("Signup Error:", err); 
       req.flash("error", "Something went wrong");
-      return resp.redirect("/"); // Redirect back to the signup page if an error occurs
+      return resp.redirect("/");
     }
   },
 
@@ -96,14 +96,14 @@ const authController = {
     // Check if the username is provided
     if (!username) {
       req.flash("error", "Please enter your username");
-      return resp.redirect("/reset"); // Redirect if no username is provided
+      return resp.redirect("/reset"); 
     }
 
     // Find the user by username
     User.findByUsername(username, (err, user) => {
       if (err || !user) {
         req.flash("error", "Username not found. Please check your username.");
-        return resp.redirect("/reset"); // Redirect if username is not found
+        return resp.redirect("/reset"); 
       }
 
       // Attempt to change the password
@@ -111,10 +111,10 @@ const authController = {
         if (err) {
           console.log(err);
           req.flash("error", "Error changing password. Please try again.");
-          return resp.redirect("/reset"); // Redirect if there was an error changing the password
+          return resp.redirect("/reset"); 
         } else {
           req.flash("success", "Password changed successfully!");
-          return resp.redirect("/signin"); // Redirect to the sign-in page after a successful password change
+          return resp.redirect("/signin"); 
         }
       });
     });
@@ -124,9 +124,9 @@ const authController = {
   logout(req, resp, next) {
     req.logout(function (err) {
       if (err) {
-        return next(err); // Pass any errors to the next middleware
+        return next(err); 
       }
-      return resp.redirect("/signin"); // Redirect to the sign-in page after logging out
+      return resp.redirect("/signin"); 
     });
   },
 };
