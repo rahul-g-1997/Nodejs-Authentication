@@ -5,7 +5,7 @@ const authController = {
   // ************************************  SIGN IN SETUP  *********************************//
   // Renders the sign-in page and passes any flash messages for feedback
   signin(req, resp) {
-    resp.render("auth/signin", { messages: req.flash() }); 
+    resp.render("auth/signin", { messages: req.flash() });
   },
 
   // Handles the POST request for sign-in, authenticates the user via passport
@@ -35,7 +35,7 @@ const authController = {
           req.flash("error", info.message);
           return next(err);
         }
-        return resp.redirect("/home"); 
+        return resp.redirect("/home");
       });
     })(req, resp, next);
   },
@@ -60,7 +60,7 @@ const authController = {
       req.flash("error", "All fields are required");
       req.flash("username", username);
       req.flash("email", email);
-      return resp.redirect("/"); 
+      return resp.redirect("/");
     }
 
     try {
@@ -70,15 +70,15 @@ const authController = {
         req.flash("error", "Email already taken");
         req.flash("username", username);
         req.flash("email", email);
-        return resp.redirect("/"); 
+        return resp.redirect("/");
       }
 
       // Create a new user and register them (password will be hashed)
       const newUser = new User({ username, email });
       await User.register(newUser, password);
-      return resp.redirect("/signin"); 
+      return resp.redirect("/signin");
     } catch (err) {
-      console.error("Signup Error:", err); 
+      console.error("Signup Error:", err);
       req.flash("error", "Something went wrong");
       return resp.redirect("/");
     }
@@ -96,14 +96,14 @@ const authController = {
     // Check if the username is provided
     if (!username) {
       req.flash("error", "Please enter your username");
-      return resp.redirect("/reset"); 
+      return resp.redirect("/reset");
     }
 
     // Find the user by username
     User.findByUsername(username, (err, user) => {
       if (err || !user) {
         req.flash("error", "Username not found. Please check your username.");
-        return resp.redirect("/reset"); 
+        return resp.redirect("/reset");
       }
 
       // Attempt to change the password
@@ -111,10 +111,10 @@ const authController = {
         if (err) {
           console.log(err);
           req.flash("error", "Error changing password. Please try again.");
-          return resp.redirect("/reset"); 
+          return resp.redirect("/reset");
         } else {
           req.flash("success", "Password changed successfully!");
-          return resp.redirect("/signin"); 
+          return resp.redirect("/signin");
         }
       });
     });
@@ -124,9 +124,9 @@ const authController = {
   logout(req, resp, next) {
     req.logout(function (err) {
       if (err) {
-        return next(err); 
+        return next(err);
       }
-      return resp.redirect("/signin"); 
+      return resp.redirect("/signin");
     });
   },
 };

@@ -10,8 +10,7 @@ import passport from "passport";
 import passportInit from "./passport/passport.js";
 
 // This converts the file URL to a path and gets the directory name
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Create an Express application instance
 const app = express();
@@ -42,15 +41,11 @@ app.use(express.urlencoded({ extended: true, limit: "21kb" }));
 // Middleware to parse cookies
 app.use(cookieParser());
 
-// Setting up the template engine as EJS
-app.set("view engine", "ejs");
-
-// Setting the views directory for template files
-app.set("views", path.join(__dirname, "views"));
+// Setting up the template engine as EJS and Setting the views directory for template files
+app.set("view engine", "ejs").set("views", path.join(__dirname, "views"));
 
 // Serving static files from the "assets" directory
-const publicPath = path.join(__dirname, "../public");
-app.use(express.static(publicPath));
+app.use(express.static(path.join(__dirname, "../public")));
 
 // Defining routes for the application, with all routes starting from the root
 app.use("/", routes);
