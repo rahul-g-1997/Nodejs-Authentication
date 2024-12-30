@@ -19,14 +19,19 @@ const app = express();
 app.use(
   session({
     secret: process.env.SECRET_KEY,
+    //prevent session resaving if it hasn't been modified.
     resave: false,
+    //prevent saving uninitialized sessions.
     saveUninitialized: false,
     cookie: { maxAge: 1000 * 60 * 60 * 24 },
   })
 );
 
 passportInit(passport);
+//Initializes Passport.
 app.use(passport.initialize());
+
+//Integrates Passport with Express sessions.
 app.use(passport.session());
 
 // Flash middleware
